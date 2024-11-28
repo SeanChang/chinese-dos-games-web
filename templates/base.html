@@ -1,60 +1,101 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-Hans" class="dark">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#121212">
     <title>{% block title %}{% endblock %}</title>
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/es6-promise.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/browserfs.min.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/loader.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/dosbox/dosbox-sync.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/dosbox/dosbox-sync.mem') }}">
-    <link rel="prefetch" href="{{ url_for('static', filename='emularity/emularity_color_small.png') }}">
+    <link rel="prefetch" href="{{ url_for('static', filename='emularity/webgame.png') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='js/game.js') }}">
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dark-theme.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
+    <style>
+        :root {
+            --text-color: #4caf50;
+            --bg-color: #121212;
+            --card-bg-color: #1e1e1e;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .navbar, .card, .table td {
+            background-color: var(--card-bg-color) !important;
+        }
+        
+        .text-light, .navbar-dark .navbar-nav .nav-link, .card-title, .card-subtitle, .card-text, .table {
+            color: var(--text-color) !important;
+        }
+        
+        .btn-outline-light {
+            color: var(--text-color);
+            border-color: var(--text-color);
+        }
+        
+        .btn-outline-light:hover {
+            color: var(--bg-color);
+            background-color: var(--text-color);
+        }
+    </style>
+    {% block head %}{% endblock %}
 </head>
 
 <body>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ url_for('index') }}">🎮</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{{ url_for('index') }}">首页</a>
-            <a class="nav-item nav-link" href="{{ url_for('games') }}">游戏列表</a>
-            <a class="nav-item nav-link" href="{{ url_for('about') }}">关于</a>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">One Web, All Game</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('index') }}">首页</a>
+                <a class="nav-item nav-link" href="{{ url_for('about') }}">DOS游戏</a>
+                <a class="nav-item nav-link" href="https://webgame.one/">FC红白机</a>
+            </div>
+            <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('search') }}">
+                <input class="form-control mr-sm-2" type="search" name="q" placeholder="游戏名称" aria-label="Search" value="{% block search_query %}{% endblock %}">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+            </form>
         </div>
-        <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('search') }}">
-            <input class="form-control mr-sm-2" type="search" name="q" placeholder="游戏名称" aria-label="Search" value="{% block search_query %}{% endblock %}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
-        </form>
-    </div>
-</nav>
+    </nav>
 
-{% block main %}{% endblock %}
+    {% block main %}{% endblock %}
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 
-{% block footer %}{% endblock %}
-
+    {% block footer %}{% endblock %}
 </body>
-
+<footer>
+<div class="about-section">
+        <center>
+        <p><a href="https://webgame.one" target="_blank">Copyright © 2023 - 2024 WebGame.One</a></p>
+        <p><a href="https://webgame.one" target="_blank">One Web, All Game | 一网万游 | WebGame.One</a></p>
+        </center>
+</div>
+</footer>
 </html>

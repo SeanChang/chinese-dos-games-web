@@ -2,21 +2,39 @@
 
 {% block title %}游戏列表 - {% endblock %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/game-list.css') }}">
+{% endblock %}
 
 {% block main %}
-    <div class="container mt-3">
-        <h3>游戏列表</h3>
-        <p>
-            {% if games %}
-                <ul>
-                    {% for key, game_info in games.items() %}
-                        <li>
-                            <a href="{{ url_for('game', identifier=game_info['identifier']) }}">{{ game_info['name']['zh-Hans'] }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </p>
-    </div>
+<div class="container game-list-container">
+    <h3 class="game-list-title">游戏列表</h3>
+    {% if games %}
+        <table class="game-list-table">
+            <tbody>
+                {% set sorted_games = games.items()|sort(attribute='1.name.zh-Hans') %}
+                {% for i in range(0, sorted_games|length, 4) %}
+                    <tr>
+                        {% for j in range(4) %}
+                            {% if i + j < sorted_games|length %}
+                                {% set key, game_info = sorted_games[i + j] %}
+                                <td>
+                                    <a href="{{ url_for('game', identifier=game_info['identifier']) }}">
+                                        {{ game_info['name']['zh-Hans'] }}
+                                    </a>
+                                </td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>暂无游戏</p>
+    {% endif %}
+</div>
 {% endblock %}
 
