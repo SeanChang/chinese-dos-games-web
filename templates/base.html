@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#121212">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | 一网万游 | WebGame.One</title>
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/es6-promise.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/browserfs.min.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/loader.js') }}">
@@ -59,8 +59,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{{ url_for('index') }}">🎮首页</a>
-                <a class="nav-item nav-link" href="{{ url_for('about') }}">💽DOS游戏</a>
+                <a class="nav-item nav-link" href="{{ url_for('games') }}">💾DOS游戏</a>
                 <a class="nav-item nav-link" href="https://webgame.one/">📺FC红白机</a>
+                <a class="nav-item nav-link" href="{{ url_for('about') }}">📟关于我们</a>
             </div>
             <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('search') }}">
                 <input class="form-control mr-sm-2" type="search" name="q" placeholder="游戏名称" aria-label="Search" value="{% block search_query %}{% endblock %}">
