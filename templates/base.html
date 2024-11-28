@@ -55,17 +55,12 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="{{ url_for('index') }}">One Web, All Game</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <h1><a class="navbar-brand nav-link" href="{{ url_for('index') }}">One Web, All Game: WebGame.One</a></h1>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{{ url_for('index') }}">首页</a>
-                <a class="nav-item nav-link" href="{{ url_for('about') }}">DOS游戏</a>
-                <a class="nav-item nav-link" href="https://webgame.one/">FC红白机</a>
+                <a class="nav-item nav-link" href="{{ url_for('index') }}">🎮首页</a>
+                <a class="nav-item nav-link" href="{{ url_for('about') }}">💽DOS游戏</a>
+                <a class="nav-item nav-link" href="https://webgame.one/">📺FC红白机</a>
             </div>
             <form class="form-inline my-2 my-lg-0" method="get" action="{{ url_for('search') }}">
                 <input class="form-control mr-sm-2" type="search" name="q" placeholder="游戏名称" aria-label="Search" value="{% block search_query %}{% endblock %}">
@@ -73,7 +68,6 @@
             </form>
         </div>
     </nav>
-
     {% block main %}{% endblock %}
 
     <!-- Optional JavaScript -->
