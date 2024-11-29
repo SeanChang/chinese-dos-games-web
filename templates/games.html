@@ -9,7 +9,7 @@
 
 {% block main %}
 <div class="container game-list-container">
-    <h3 class="game-list-title">游戏列表</h3>
+    <h2 class="game-list-title">游戏列表</h2>
     {% if games %}
         <table class="game-list-table">
             <tbody>
@@ -20,9 +20,9 @@
                             {% if i + j < sorted_games|length %}
                                 {% set key, game_info = sorted_games[i + j] %}
                                 <td>
-                                    <a href="{{ url_for('game', identifier=game_info['identifier']) }}">
+                                    <h3><a href="{{ url_for('game', identifier=game_info['identifier']) }}">
                                         {{ game_info['name']['zh-Hans'] }}
-                                    </a>
+                                    </a></h3>
                                 </td>
                             {% else %}
                                 <td></td>

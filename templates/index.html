@@ -14,15 +14,15 @@
                                  alt="{{ game_info['name']['zh-Hans'] }}">
                         </a>
                         <div class="p-4">
-                            <h5 class="text-green-400 font-bold text-xl mb-2">{{ game_info['name']['zh-Hans'] }}</h5>
+                            <h2 class="text-green-400 font-bold text-xl mb-2">{{ game_info['name']['zh-Hans'] }}</h2>
                         </div>
                     </div>
                 {% endfor %}
             {% endif %}
             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                 <div class="p-4">
-                    <h5 class="text-green-400 font-bold text-xl mb-2">更多游戏</h5>
-                    <h6 class="text-green-300 mb-4">目前共有 {{ game_count }} 款游戏</h6>
+                    <h3 class="text-green-400 font-bold text-xl mb-2">更多游戏</h3>
+                    <h4 class="text-green-300 mb-4">目前共有 {{ game_count }} 款游戏</h4>
                     <a href="{{ url_for('games') }}" class="text-green-500 hover:text-green-300">游戏列表</a>
                 </div>
             </div>
