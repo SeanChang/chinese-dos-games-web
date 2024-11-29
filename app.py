@@ -3,8 +3,9 @@ from flask import render_template, redirect, url_for, make_response, request
 
 from game_infos import game_infos, game_infos_with_cover
 import json
+import random
 
-number_to_show_on_index = 42
+number_to_show_on_index = 100
 
 app = Flask(__name__)
 
@@ -12,8 +13,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     game_infos_to_show = game_infos_with_cover[:number_to_show_on_index - 1]
+    random.shuffle(game_infos_to_show)  # 随机打乱游戏列表
     return render_template('index-imgs.html', game_infos=game_infos_to_show, game_count=len(game_infos['games']))
-
 
 @app.route('/about')
 def about():

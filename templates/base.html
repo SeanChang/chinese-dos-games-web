@@ -7,6 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#121212">
     <title>{% block title %}{% endblock %} | 一网万游 | WebGame.One</title>
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta charset="UTF-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://webgame.one/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://webgame.one/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://webgame.one/favicon-16x16.png">
+    <link rel="mask-icon" href="https://webgame.one/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="keywords" content="一网万游、在线红白机游戏、对战平台、WebGame.One、80s 游戏、复古游戏" />
+    <meta name="description" content="一网万游，带你重回 80 年代！WebGame.One 是专业的在线红白机游戏对战平台，海量经典红白机游戏任你畅玩，与全球玩家实时对战，重温童年游戏激情，感受复古游戏魅力，开启趣味十足的怀旧游戏之旅。" />
+    <link rel="canonical" href="https://dos.webgame.one/" />
+    <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0SFJV7E2BB"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+	
+		gtag('config', 'G-0SFJV7E2BB');
+	</script>
+	<script type="text/javascript">
+		(function(c, l, a, r, i, t, y) {
+			c[a] = c[a] || function() {
+				(c[a].q = c[a].q || []).push(arguments)
+			};
+			t = l.createElement(r);
+			t.async = 1;
+			t.src = "https://www.clarity.ms/tag/" + i;
+			y = l.getElementsByTagName(r)[0];
+			y.parentNode.insertBefore(t, y);
+		})(window, document, "clarity", "script", "owd5aydfyh");
+	</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6708353961519889" crossorigin="anonymous"></script>
+    
+    
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/es6-promise.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/browserfs.min.js') }}">
     <link rel="prefetch" href="{{ url_for('static', filename='emularity/loader.js') }}">
@@ -58,7 +93,7 @@
         <h1><a class="navbar-brand nav-link" href="{{ url_for('index') }}">One Web, All Game: WebGame.One</a></h1>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{{ url_for('index') }}">🎮首页</a>
+                <a class="nav-item nav-link" href="{{ url_for('index') }}">🎲随机游戏</a>
                 <a class="nav-item nav-link" href="{{ url_for('games') }}">💾DOS游戏</a>
                 <a class="nav-item nav-link" href="https://webgame.one/">📺FC红白机</a>
                 <a class="nav-item nav-link" href="{{ url_for('about') }}">📟关于我们</a>
