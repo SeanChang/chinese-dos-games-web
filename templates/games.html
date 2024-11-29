@@ -20,9 +20,9 @@
                             {% if i + j < sorted_games|length %}
                                 {% set key, game_info = sorted_games[i + j] %}
                                 <td>
-                                    <h3><a href="{{ url_for('game', identifier=game_info['identifier']) }}">
+                                    <a href="{{ url_for('game', identifier=game_info['identifier']) }}">
                                         {{ game_info['name']['zh-Hans'] }}
-                                    </a></h3>
+                                    </a>
                                 </td>
                             {% else %}
                                 <td></td>
